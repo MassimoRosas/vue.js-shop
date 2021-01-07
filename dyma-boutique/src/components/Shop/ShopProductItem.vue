@@ -1,6 +1,6 @@
 <template>
-  <div>
-    
+  <div class="w-25 border product-container">
+    Item
   </div>
 </template>
 
@@ -12,5 +12,7 @@ export default {
 </script>
 
 <style>
-
+  .product-container {
+    height: 400px;
+  }
 </style>

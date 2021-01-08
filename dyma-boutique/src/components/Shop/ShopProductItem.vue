@@ -20,16 +20,7 @@
 <script>
 
 export default {
-  data() {
-    return {
-      product: {
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-deHWocg78ArMXJDNpKpTHrs0faNW6BAthlyNVudglw4BBm5OXQJREjqQMX9PBnqDe39NjkY&usqp=CAc',
-        title: 'MacBook',
-        description: 'Notre portable le plus fin et le plus léger est métamorphosé par la puce Apple M1.',
-        price: '1500 €'
-      }
-    }
-  }
+  props: ['product']
 }
 </script>
 

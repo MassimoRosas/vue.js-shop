@@ -10,10 +10,10 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link">Boutique</a>
+          <a class="nav-link" @click="changePage('User')" :class="{ active: page === 'User' }">Boutique</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Admin</a>
+          <a class="nav-link" @click="changePage('Admin')" :class="{ active: page === 'Admin' }">Admin</a>
         </li>
       </ul>
     </div>
@@ -21,12 +21,30 @@
 </template>
 
 <script>
+import { eventBus } from '../main';
 
 export default {
-  
+  data() {
+    return {
+      page: eventBus.page
+    }
+  },
+  methods: {
+    changePage(page) {
+      eventBus.changePage(page);
+    }
+  },
+  created() {
+    eventBus.$on('update:page', (page) => {
+      this.page = page;
+    })
+  }
 }
+
 </script>
 
 <style>
-
+  a {
+    cursor: pointer;
+  }
 </style>

@@ -11,7 +11,7 @@
       <p>{{ product.description }}</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
-      <span>{{ product.price }}</span>
+      <span>{{ product.price }} €</span>
       <button @click="addProductToCart" class="btn btn-primary btn-sm">Commander</button>
     </div>
   </div>

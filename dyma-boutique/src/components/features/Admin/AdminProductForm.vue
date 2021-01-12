@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { eventBus } from '../../../main';
+
 export default {
   data() {
     return {
@@ -42,7 +44,9 @@ export default {
     trySubmit(e) {
       e.preventDefault();
       if(this.formIsValid()) {
-        console.log(this.form);
+        eventBus.addProduct({ ...this.form });
+        this.resetForm();
+        eventBus.changePage('User');
       }
     },
     formIsValid() {
@@ -62,6 +66,14 @@ export default {
       }
 
       return this.errors.length ? false : true;
+    },
+    resetForm() {
+      this.form = {
+        img: '',
+        title: '',
+        description: '',
+        price: ''
+      };
     }
   }
 }
